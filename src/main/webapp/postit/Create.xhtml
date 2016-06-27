@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PostitCreateDlg" widgetVar="PostitCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePostitTitle}">
+            <h:form id="PostitCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{postitController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePostitLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{postitController.selected.id}" title="#{bundle.CreatePostitTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreatePostitLabel_testo}" for="testo" />
+                        <p:inputText id="testo" value="#{postitController.selected.testo}" title="#{bundle.CreatePostitTitle_testo}" />
+                        <p:outputLabel value="#{bundle.CreatePostitLabel_dataCreazione}" for="dataCreazione" />
+                        <p:calendar id="dataCreazione" pattern="MM/dd/yyyy" value="#{postitController.selected.dataCreazione}" title="#{bundle.EditPostitTitle_dataCreazione}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreatePostitLabel_dataScadenza}" for="dataScadenza" />
+                        <p:calendar id="dataScadenza" pattern="MM/dd/yyyy HH:mm:ss" value="#{postitController.selected.dataScadenza}" title="#{bundle.EditPostitTitle_dataScadenza}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreatePostitLabel_utente}" for="utente" />
+                        <p:selectOneMenu id="utente" value="#{postitController.selected.utente}" >
+                            <f:selectItems value="#{utenteController.itemsAvailableSelectOne}"
+                                           var="utenteItem"
+                                           itemValue="#{utenteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{postitController.create}" value="#{bundle.Save}" update="display,:PostitListForm:datalist,:growl" oncomplete="handleSubmit(args,'PostitCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PostitCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

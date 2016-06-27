@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.entity;
+package it.tss.esempio.business.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +14,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -23,7 +26,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Postit implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -33,8 +36,10 @@ public class Postit implements Serializable {
     private Date dataCreazione;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataScadenza;
+    @ManyToOne
     private Utente utente;
-    private List tags;
+    @ManyToMany
+    private List<Tag> tags;
 
     public long getId() {
         return id;
@@ -76,11 +81,11 @@ public class Postit implements Serializable {
         this.utente = utente;
     }
 
-    public List getTags() {
+    public List<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List tags) {
+    public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
@@ -98,7 +103,5 @@ public class Postit implements Serializable {
     public int hashCode() {
         return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
 }

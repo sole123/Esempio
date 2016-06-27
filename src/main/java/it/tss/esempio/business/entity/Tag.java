@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.entity;
+package it.tss.esempio.business.entity;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -24,6 +24,26 @@ public class Tag implements Serializable{
     private long id;
     @Column(length = 150)
     private String etichetta;
+
+    public Tag() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getEtichetta() {
+        return etichetta;
+    }
+
+    public void setEtichetta(String etichetta) {
+        this.etichetta = etichetta;
+    }
+    
     
     
 }
