@@ -12,8 +12,7 @@
             <h:form id="PostitViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{postitController.selected != null}">
-                        <h:outputText value="#{bundle.ViewPostitLabel_id}"/>
-                        <h:outputText value="#{postitController.selected.id}" title="#{bundle.ViewPostitTitle_id}"/>
+                        
                         <h:outputText value="#{bundle.ViewPostitLabel_testo}"/>
                         <h:outputText value="#{postitController.selected.testo}" title="#{bundle.ViewPostitTitle_testo}"/>
                         <h:outputText value="#{bundle.ViewPostitLabel_dataCreazione}"/>

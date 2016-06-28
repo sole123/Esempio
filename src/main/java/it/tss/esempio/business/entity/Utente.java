@@ -86,7 +86,7 @@ public class Utente implements Serializable {
 
     @Override
     public String toString() {
-        return "Utente" + username ;
+        return username ;
     }
     
     

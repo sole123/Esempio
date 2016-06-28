@@ -45,6 +45,11 @@ public class Postit implements Serializable {
         return id;
     }
 
+    public Postit() {
+        dataCreazione = new Date();
+    }
+    
+
     public void setId(long id) {
         this.id = id;
     }

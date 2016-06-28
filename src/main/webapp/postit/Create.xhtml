@@ -12,8 +12,7 @@
             <h:form id="PostitCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{postitController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreatePostitLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{postitController.selected.id}" title="#{bundle.CreatePostitTitle_id}" />
+                        
                         <p:outputLabel value="#{bundle.CreatePostitLabel_testo}" for="testo" />
                         <p:inputText id="testo" value="#{postitController.selected.testo}" title="#{bundle.CreatePostitTitle_testo}" />
                         <p:outputLabel value="#{bundle.CreatePostitLabel_dataCreazione}" for="dataCreazione" />

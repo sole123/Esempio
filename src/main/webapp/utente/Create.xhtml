@@ -12,8 +12,7 @@
             <h:form id="UtenteCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{utenteController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateUtenteLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{utenteController.selected.id}" title="#{bundle.CreateUtenteTitle_id}" />
+                        
                         <p:outputLabel value="#{bundle.CreateUtenteLabel_username}" for="username" />
                         <p:inputText id="username" value="#{utenteController.selected.username}" title="#{bundle.CreateUtenteTitle_username}" />
                         <p:outputLabel value="#{bundle.CreateUtenteLabel_password}" for="password" />

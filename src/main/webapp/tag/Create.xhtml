@@ -12,8 +12,7 @@
             <h:form id="TagCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tagController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTagLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{tagController.selected.id}" title="#{bundle.CreateTagTitle_id}" />
+                        
                         <p:outputLabel value="#{bundle.CreateTagLabel_etichetta}" for="etichetta" />
                         <p:inputText id="etichetta" value="#{tagController.selected.etichetta}" title="#{bundle.CreateTagTitle_etichetta}" />
                     </p:panelGrid>
