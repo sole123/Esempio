@@ -24,8 +24,7 @@ public class Utente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(length = 100)
-    //@Column(unique = true)
+    @Column(length = 100, unique = true)
     private String username;
     @Column(length = 100)
     private String password;
@@ -83,6 +82,11 @@ public class Utente implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Utente" + username ;
     }
     
     
