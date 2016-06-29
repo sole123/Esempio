@@ -12,15 +12,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
  *
  * @author tss
  */
+
+@NamedQueries({
+    @NamedQuery(name = "Utente.findByUsrPwd",
+            query = "select e from Utente e where e.username= :username and e.password= :password"),
+    
+})
 @Entity
 public class Utente implements Serializable {
     
+     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

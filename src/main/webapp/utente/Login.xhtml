@@ -4,41 +4,31 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-   
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <h:head>
-        <title><ui:insert name="title">Login</ui:insert></title>
-        <h:outputStylesheet library="css" name="jsfcrud.css"/>
-        <h:outputScript library="js" name="jsfcrud.js"/>
-    </h:head>
-    
-        <h:body>
-            <h:form>
 
-            <h:outputLabel value="username"/>
-            <h:inputText
-                         p:placeholder="inserisci il tuo nickname" value=""
-                         required="true" requiredMessage="il nickname è obbligatorio"/>
-
-            <h:outputLabel value="password"/>
-            <h:inputSecret 
-                           p:placeholder="inserisci la tua password" value=""
-                  required="true" requiredMessage="la password è obbligatoria"/>
-
-            <h:commandButton
-                action="" value="Login">
-                                 
-            </h:commandButton>
+        <ui:composition> 
+           
             
-
-        </h:form>
-        </h:body>
+            <p:dialog id="LoginDialog" widgetVar="LoginDialog" modal="true" appendTo="@(body)" header="Inserisci username e password"> 
+                <h:form>
+                    <h:panelGroup>
+                        <h:panelGrid columns="2">             
+                            <h:outputLabel value="Username:" />
+                            <p:inputText value="#{login.usr}"></p:inputText>
+                            <h:outputLabel value="Password:" />
+                            <p:password value="#{login.pwd}"></p:password>
+                        </h:panelGrid>
+                       <p:commandButton value="Submit" action="#{login.onLogin()}" oncomplete="handleSubmit(args, 'LoginDialog');"></p:commandButton>
+                    </h:panelGroup>
+                </h:form>
+            </p:dialog>
+           
+          
+        </ui:composition>     
+    
 </html>
