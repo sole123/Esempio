@@ -8,7 +8,7 @@
     <dependencies>
         <dependency>
             <groupId>org.primefaces.themes</groupId>
-            <artifactId>sam</artifactId>
+            <artifactId>start</artifactId>
             <version>1.0.10</version>
         </dependency>
         <dependency>
