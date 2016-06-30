@@ -23,9 +23,9 @@ import javax.persistence.OneToMany;
 
 @NamedQueries({
     @NamedQuery(name = "Utente.findByUsrPwd",
-            query = "select e from Utente e where e.username= :username and e.password= :password"),
-    
-})
+            query = "select e from Utente e where e.username= :username and e.password= :password"), 
+    @NamedQuery(name = "Utente.findByNick",
+            query = "select e from Utente e where e.username like :username")})
 @Entity
 public class Utente implements Serializable {
     

@@ -13,15 +13,17 @@
 
     <h:body>
 
-        <p:growl id="growl" life="3000" />
+        <p:growl id="growl" life="3000" /> 
 
         <p:layout fullPage="true">
             <p:layoutUnit position="north" size="65" header="#{bundle.AppName}: benvenuto #{userSession.loggedUser}">
                 <h:form id="menuForm">
                     <p:menubar>
-                        <p:submenu label="#{bundle.Home}" icon="ui-icon-home">
-                            <p:menuitem value="Registrati" />
-                            <p:menuitem value="Login" outcome="/utente/Login.xhtml" oncomplete="PF('LoginDialog').show()"/>
+                        <p:submenu label="#{bundle.Home}" icon="ui-icon-home" >
+                            <p:menuitem value="Registrati" rendered="#{empty userSession.loggedUser}"/>
+                            <p:menuitem value="Login" outcome="/utente/Login.xhtml" onclick="PF('LoginDialog').show()" rendered="#{empty userSession.loggedUser}"/>
+                            <p:menuitem value="Logout" rendered="#{not empty userSession.loggedUser}" onclick="PF('cd').show()"/>
+
                         </p:submenu>    
                         <p:submenu label="#{bundle.Maintenance}" rendered="#{not empty userSession.loggedUser}">
                             <p:menuitem value="Postit" outcome="/postit/List.xhtml" />
@@ -29,6 +31,17 @@
                             <p:menuitem value="Utente" outcome="/utente/List.xhtml" />
                         </p:submenu>
                     </p:menubar>
+                    
+                    
+                    
+                </h:form>
+                <h:form>
+                    <p:confirmDialog message="Are you sure you want quit application?"
+                                     header="Logout" severity="alert" 
+                                     widgetVar="cd">
+                        <p:commandButton value="Yes" onclick="PF('cd').hide()"/>
+                        <p:commandButton value="No" onclick="PF('cd').hide()" type="button" />
+                    </p:confirmDialog>
                 </h:form>
             </p:layoutUnit>
 

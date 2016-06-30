@@ -46,12 +46,12 @@ public class UtenteSrv {
                 .setParameter("password", pwd)
                 .getSingleResult();
     }
-/*
+
     public Utente findByNick(String nick) {
         return em.createNamedQuery("Utente.findByNick", Utente.class)
-                .setParameter("usr",nick )
+                .setParameter("username",nick )
                 .getSingleResult();
-    }
+    }/*
     
     public Utente findById(String id){
         System.out.println("findById(),....");

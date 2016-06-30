@@ -6,6 +6,7 @@
 package it.tss.esempio.presentation;
 
 
+import it.tss.esempio.business.boundary.UsersCache;
 import it.tss.esempio.business.boundary.UtenteSrv;
 import it.tss.esempio.business.entity.Utente;
 import javax.ejb.EJBException;
@@ -22,6 +23,10 @@ public class Security {
     Utente utente;
     @Inject
     private UtenteSrv utenteSrv;
+    @Inject
+    SessionData sessionData;
+    @Inject
+    UsersCache usersCache;
 
 
     public boolean login(String usr, String pwd) {
@@ -34,6 +39,15 @@ public class Security {
         }
 
     }
+   /*
+    public void logout() {
+        logout(
+            utenteSrv.findByNick(sessionData.getLoggedUser()));
+    }
+
+    public void logout(Utente u) {
+        usersCache.removeUser(u);
+    }*/
 
 
 }
