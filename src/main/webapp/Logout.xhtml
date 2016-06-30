@@ -9,7 +9,9 @@
         <h:outputStylesheet name="css/jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
     </h:head>
+    
     <ui:composition>
+        <h:panelGroup>
         <h:form>
             <p:confirmDialog global="true" message="Are you sure you want quit application?"
                              header="Logout" severity="alert" 
@@ -18,6 +20,6 @@
                 <p:commandButton value="No" onclick="PF('cd').hide()" />
             </p:confirmDialog>
         </h:form>    
-
+        </h:panelGroup>     
     </ui:composition>
 </html>
