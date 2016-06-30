@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Logout</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+    <ui:composition>
+        <h:form>
+            <p:confirmDialog global="true" message="Are you sure you want quit application?"
+                             header="Logout" severity="alert" 
+                             widgetVar="cd">
+                <p:commandButton value="Yes" action="#{logout.onLogout()}" oncomplete="handleSubmit(args, 'cd')"/>
+                <p:commandButton value="No" onclick="PF('cd').hide()" />
+            </p:confirmDialog>
+        </h:form>    
+
+    </ui:composition>
+</html>

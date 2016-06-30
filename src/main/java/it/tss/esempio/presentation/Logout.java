@@ -23,9 +23,10 @@ public class Logout {
     Security security;
     
     public String onLogout(){
-        
+        System.out.println("onLogout*******");
         security.logout();
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(("Logout successfully performed")));
         return "/index.xhtml?faces-redirect=true";
     }

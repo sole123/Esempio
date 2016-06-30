@@ -6,6 +6,7 @@
 package it.tss.esempio.presentation;
 
 
+import it.tss.esempio.presentation.util.JsfUtil;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -46,10 +47,11 @@ public class Login {
     }
 
     public String onLogin() {
-        boolean login = security.login(usr, pwd);
-        if (login) {
+        //boolean login = security.login(usr, pwd);
+        if (security.login(usr, pwd)) {
             sessionData.setLoggedUser(usr);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "!", "Login effettuata con successo!"));
+            JsfUtil.addSuccessMessage("Login effettuata con successo!");
+            //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "!", "Login effettuata con successo!"));
             return "/index.xhtml?faces-redirect=true";
         }
         FacesContext.getCurrentInstance().

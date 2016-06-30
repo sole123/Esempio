@@ -9,6 +9,7 @@ package it.tss.esempio.presentation;
 import it.tss.esempio.business.boundary.UsersCache;
 import it.tss.esempio.business.boundary.UtenteSrv;
 import it.tss.esempio.business.entity.Utente;
+import it.tss.esempio.presentation.util.JsfUtil;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -33,6 +34,7 @@ public class Security {
         try {
             Utente u = utenteSrv.findByUsrPwd(usr, pwd);
             usersCache.addUser(u);
+            JsfUtil.addSuccessMessage("Login effettuato con successo!");
             return true;
         } catch (EJBException ex) {
             return false;
