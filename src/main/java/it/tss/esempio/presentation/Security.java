@@ -32,14 +32,14 @@ public class Security {
     public boolean login(String usr, String pwd) {
         try {
             Utente u = utenteSrv.findByUsrPwd(usr, pwd);
-           // usersCache.addUser(u);
+            usersCache.addUser(u);
             return true;
         } catch (EJBException ex) {
             return false;
         }
 
     }
-   /*
+   
     public void logout() {
         logout(
             utenteSrv.findByNick(sessionData.getLoggedUser()));
@@ -47,7 +47,7 @@ public class Security {
 
     public void logout(Utente u) {
         usersCache.removeUser(u);
-    }*/
+    }
 
 
 }
