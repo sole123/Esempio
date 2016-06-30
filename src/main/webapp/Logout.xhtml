@@ -13,7 +13,7 @@
     <ui:composition>
         <h:panelGroup>
         <h:form>
-            <p:confirmDialog global="true" message="Are you sure you want quit application?"
+            <p:confirmDialog  message="Are you sure you want quit application?"
                              header="Logout" severity="alert" 
                              widgetVar="cd">
                 <p:commandButton value="Yes" action="#{logout.onLogout()}" oncomplete="handleSubmit(args, 'cd')"/>
